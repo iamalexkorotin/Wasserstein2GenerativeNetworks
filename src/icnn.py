@@ -11,7 +11,7 @@ class DenseICNN(nn.Module):
         self, in_dim, 
         hidden_layer_sizes=[32, 32, 32],
         rank=1, activation='celu', dropout=0.03,
-        strong_convexity=1e-6, auto_convexify=True
+        strong_convexity=1e-6
     ):
         super(DenseICNN, self).__init__()
         
@@ -20,7 +20,6 @@ class DenseICNN(nn.Module):
         self.droput = dropout
         self.activation = activation
         self.rank = rank
-        self.auto_convexify = auto_convexify
         
         self.quadratic_layers = nn.ModuleList([
             nn.Sequential(
@@ -69,9 +68,7 @@ class DenseICNN(nn.Module):
                 if (isinstance(sublayer, nn.Linear)):
                     sublayer.weight.data.clamp_(0)
         self.final_layer.weight.data.clamp_(0)
-        
-
-        
+              
 class View(nn.Module):
     def __init__(self, *shape):
         super(View, self).__init__()
