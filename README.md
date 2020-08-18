@@ -15,7 +15,8 @@ The implementation is GPU-based. Single GPU (~GTX 1080 ti) is enough to run each
 All the experiments are issued in the form of pretty self-explanatory jupyter notebooks (`notebooks/`). For convenience, the majority of the evaluation output is preserved. Auxilary source code is moved to `.py` modules (`src/`). 
 
 ### Experiments
-- `notebooks/W2GN_toy_experiments.ipynb` -- **toy experiments** (Swiss Roll, 100 Gaussuans, ...);
+- `notebooks/W2GN_toy_experiments.ipynb` -- **toy experiments** (2D: Swiss Roll, 100 Gaussuans, ...);
+- `notebooks/W2GN_gaussians_high_dimensions.ipynb` -- **fitting optimal maps between gaussians in high dimensions**;
 - `notebooks/W2GN_latent_space_optimal_transport.ipynb` -- **latent space optimal transport** for a *CelebA 64x64* Aligned Images (use [this script](https://github.com/joeylitalien/celeba-gan-pytorch/blob/master/CelebA_helper.py) to rescale dataset to 64x64);
 - `notebooks/W2GN_domain_adaptation.ipynb` -- **domain adaptation** for *MNIST-USPS* digits datasets;
 - `notebooks/W2GN_color_transfer.ipynb` -- cycle monotone pixel-wise image-to-image **color transfer** (example images are provided in `data/color_transfer/`);
