@@ -310,3 +310,36 @@ class StandardNormalScaler(Transformer):
         batch @= self.multiplier
         batch += self.mean
         return batch
+    
+class LinearTransformer(Transformer):
+    def __init__(
+        self, weight, bias=None,
+        device='cuda', dtype=torch.float,
+        requires_grad=False
+    ):
+        super(LinearTransformer, self).__init__(
+            device=device, dtype=dtype,
+            requires_grad=requires_grad
+        )
+        
+        self.weight = torch.tensor(weight, device=device, dtype=dtype, requires_grad=False)
+        if bias is not None:
+            self.bias = torch.tensor(bias, device=device, dtype=dtype, requires_grad=False)
+        else:
+            self.bias = None
+        
+    def fit(self, base_sampler):
+        self.base_sampler = base_sampler
+        
+    def sample(self, batch_size=4):
+        batch = torch.tensor(
+            self.base_sampler.sample(batch_size),
+            device=self.device, requires_grad=False, dtype=self.dtype
+        )
+        with torch.no_grad():
+            batch = batch @ self.weight.T
+            if self.bias is not None:
+                batch += self.bias
+        batch = batch.detach()
+        batch.requires_grad_(self.requires_grad)
+        return batch
