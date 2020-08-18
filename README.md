@@ -31,7 +31,8 @@ Transforming single Gaussian to the mixture of 100 Gaussuans without mode droppi
 <p align="center"><img src="pics/toy_100g.png" width="650"/></p>
 
 ### Latent Space Optimal Transport
-CelebA 64x64 generated faces. The quality of the model highly depends on the quality of the autoencoder. Use `notebooks/AE_Celeba.ipynb` to train MSE or perceptual AE (on VGG features,  to improve AE visual quality).
+CelebA 64x64 generated faces. The quality of the model highly depends on the quality of the autoencoder. Use `notebooks/AE_Celeba.ipynb` to train MSE or perceptual AE (on VGG features,  to improve AE visual quality).<br>
+**Pre-trained autoencoders:** MSE-AE [[Goodle Drive](https://drive.google.com/file/d/17hndo5flmEsGhOP1taWHlAMXMYOUO7pM/view?usp=sharing), [Yandex Disk](https://yadi.sk/d/HRciVy7chhwvAg)], VGG-AE [[Google Drive](https://drive.google.com/file/d/1p1LjGdOw7M3SQ1Zp1BiPKINaKZsOJ3RD/view?usp=sharing), [Yandex Disk](https://yadi.sk/d/BdWCkWuHogTzDQ)].
 <p align="center"><img src="pics/latent_ot.png" width="400"/></p>
 <p align="center"><img src="pics/celeba_generated_vgg_ae.png" width="700" /></p>
 
