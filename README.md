@@ -15,7 +15,8 @@ The implementation is GPU-based. Single GPU (~GTX 1080 ti) is enough to run each
 All the experiments are issued in the form of pretty self-explanatory jupyter notebooks (`notebooks/`). For convenience, the majority of the evaluation output is preserved. Auxilary source code is moved to `.py` modules (`src/`). 
 
 ### Experiments
-- `notebooks/W2GN_toy_experiments.ipynb` -- **toy experiments** (Swiss Roll, 100 Gaussuans, ...);
+- `notebooks/W2GN_toy_experiments.ipynb` -- **toy experiments** (2D: Swiss Roll, 100 Gaussuans, ...);
+- `notebooks/W2GN_gaussians_high_dimensions.ipynb` -- optimal maps between **Gaussians in high dimensions**;
 - `notebooks/W2GN_latent_space_optimal_transport.ipynb` -- **latent space optimal transport** for a *CelebA 64x64* Aligned Images (use [this script](https://github.com/joeylitalien/celeba-gan-pytorch/blob/master/CelebA_helper.py) to rescale dataset to 64x64);
 - `notebooks/W2GN_domain_adaptation.ipynb` -- **domain adaptation** for *MNIST-USPS* digits datasets;
 - `notebooks/W2GN_color_transfer.ipynb` -- cycle monotone pixel-wise image-to-image **color transfer** (example images are provided in `data/color_transfer/`);
@@ -30,7 +31,8 @@ Transforming single Gaussian to the mixture of 100 Gaussuans without mode droppi
 <p align="center"><img src="pics/toy_100g.png" width="650"/></p>
 
 ### Latent Space Optimal Transport
-CelebA 64x64 generated faces. The quality of the model highly depends on the quality of the autoencoder. Use `notebooks/AE_Celeba.ipynb` to train MSE or perceptual AE (on VGG features,  to improve AE visual quality).
+CelebA 64x64 generated faces. The quality of the model highly depends on the quality of the autoencoder. Use `notebooks/AE_Celeba.ipynb` to train MSE or perceptual AE (on VGG features,  to improve AE visual quality).<br>
+**Pre-trained autoencoders:** MSE-AE [[Goodle Drive](https://drive.google.com/file/d/17hndo5flmEsGhOP1taWHlAMXMYOUO7pM/view?usp=sharing), [Yandex Disk](https://yadi.sk/d/HRciVy7chhwvAg)], VGG-AE [[Google Drive](https://drive.google.com/file/d/1p1LjGdOw7M3SQ1Zp1BiPKINaKZsOJ3RD/view?usp=sharing), [Yandex Disk](https://yadi.sk/d/BdWCkWuHogTzDQ)].
 <p align="center"><img src="pics/latent_ot.png" width="400"/></p>
 <p align="center"><img src="pics/celeba_generated_vgg_ae.png" width="700" /></p>
 
