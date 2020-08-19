@@ -6,7 +6,7 @@ The repository contains reproducible `PyTorch` source code for computing **optim
 <p align="center"><img src="pics/mappings.png" width="450" /></p>
 
 ## Prerequisites
-The implementation is GPU-based. Single GPU (~GTX 1080 ti) is enough to run each particular experiment.
+The implementation is GPU-based. Single GPU (~GTX 1080 ti) is enough to run each particular experiment. Main prerequisites are:
 - [pytorch](http://pytorch.org/)
 - [torchvision](https://github.com/pytorch/vision)
 - CUDA + CuDNN
@@ -27,14 +27,115 @@ All the experiments are issued in the form of pretty self-explanatory jupyter no
 
 ## Results
 ### Toy Experiments
-Transforming single Gaussian to the mixture of 100 Gaussuans without mode dropping/collapse.
+Transforming single Gaussian to the mixture of 100 Gaussuans without mode dropping/collapse. Assessing the quality of the transport map fit in large dimensions.
 <p align="center"><img src="pics/toy_100g.png" width="650"/></p>
+
+### Optimal Transport Maps between High Dimensional Gaussians
+Assessing the quality of fitted optimal transport maps between two high-dimensional Gaussians (tested in dim up to 4096). The metric is **Unexplained Variance Percentage** (UVP, %).
+<p align="center"><img src="pics/gaussian_ot.png" width="300" /></p>
+<table>
+<thead>
+  <tr>
+    <th></th>
+    <th>2</th>
+    <th>4</th>
+    <th>8</th>
+    <th>16</th>
+    <th>32</th>
+    <th>64</th>
+    <th>128</th>
+    <th>256</th>
+    <th>512</th>
+    <th>1024</th>
+    <th>2048</th>
+    <th>4096</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><a href="https://github.com/vivienseguy/Large-Scale-OT">Large-scale OT</a></td>
+    <td>&lt;1</td>
+    <td>3.7</td>
+    <td>7.5</td>
+    <td>14.3</td>
+    <td>23</td>
+    <td>34.7</td>
+    <td>46.9</td>
+    <td>&gt;50</td>
+    <td>&gt;50</td>
+    <td>&gt;50</td>
+    <td>&gt;50</td>
+    <td>&gt;50</td>
+  </tr>
+  <tr>
+    <td><b>Wasserstein-2 GN</b></td>
+    <td>&lt;1</td>
+    <td>&lt;1</td>
+    <td>&lt;1</td>
+    <td>&lt;1</td>
+    <td>&lt;1</td>
+    <td>&lt;1</td>
+    <td>1</td>
+    <td>1.1</td>
+    <td>1.3</td>
+    <td>1.7</td>
+    <td>1.8</td>
+    <td>1.5</td>
+  </tr>
+</tbody>
+</table>
 
 ### Latent Space Optimal Transport
 CelebA 64x64 generated faces. The quality of the model highly depends on the quality of the autoencoder. Use `notebooks/AE_Celeba.ipynb` to train MSE or perceptual AE (on VGG features,  to improve AE visual quality).<br>
 **Pre-trained autoencoders:** MSE-AE [[Goodle Drive](https://drive.google.com/file/d/1twsG6TbvlpQI7tkeScj7qoSVUs3K_1gq/view?usp=sharing), [Yandex Disk](https://yadi.sk/d/_fJ3wsAYzW3ORA)], VGG-AE [[Google Drive](https://drive.google.com/file/d/1p1LjGdOw7M3SQ1Zp1BiPKINaKZsOJ3RD/view?usp=sharing), [Yandex Disk](https://yadi.sk/d/BdWCkWuHogTzDQ)].
 <p align="center"><img src="pics/latent_ot.png" width="400"/></p>
 <p align="center"><img src="pics/celeba_generated_vgg_ae.png" width="700" /></p>
+
+Combining simple pre-trained **MSE autoencoder** with W2GN is enough to surpass Wasserstein GAN model in Freschet Inception Distance Score (FID).
+
+<table>
+<thead>
+  <tr>
+    <th></th>
+    <th>AE Reconstruct</th>
+    <th>AE Raw Decode</th>
+    <th><b>AE + W2GN</b></th>
+    <th><a href="https://github.com/joeylitalien/celeba-gan-pytorch">WGAN</a></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><b>FID Score</b></td>
+    <td>23.35</td>
+    <td>86.66</td>
+    <td><b>43.35</b></td>
+    <td>45.23</td>
+  </tr>
+</tbody>
+</table>
+
+Perceptual **VGG autoencoder** combined with W2GN provides nearly State-of-the-art FID (compared to Wasserstein GAN with Quadratic Cost).
+
+<table>
+<thead>
+  <tr>
+    <th></th>
+    <th>AE Reconstruct</th>
+    <th>AE Raw Decode</th>
+    <th><b>AE + W2GN</b></th>
+    <th><a href="https://github.com/harryliew/WGAN-QC">WGAN-QC</a></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><b>FID Score</b></td>
+    <td>7.5</td>
+    <td>31.81</td>
+    <td><b>17.21</b></td>
+    <td>14.41</td>
+  </tr>
+</tbody>
+</table>
 
 ### Image-to-Image Color Transfer
 Cycle monotone color transfer is applicable even to gigapixel images!
