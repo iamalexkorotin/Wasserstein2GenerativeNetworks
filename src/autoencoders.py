@@ -19,7 +19,7 @@ class CelebaEncoder(nn.Module):
             inter_fc_dim (int): intermediate fully connected dimensionality prior to embedding layer
             embedding_dim (int): embedding dimensionality
     """
-    def __init__(self, init_num_filters=16, lrelu_slope=0.2, inter_fc_dim=128, embedding_dim=2, nc=3):
+    def __init__(self, init_num_filters=16, lrelu_slope=0.2, inter_fc_dim=128, embedding_dim=2, nc=3, dropout=0.05):
         super(CelebaEncoder, self).__init__()
 
         self.init_num_filters_ = init_num_filters
@@ -30,21 +30,25 @@ class CelebaEncoder(nn.Module):
         self.features = nn.Sequential(
             nn.Conv2d(nc,  self.init_num_filters_ * 1, 4, 2, 1, bias=False),
             nn.LeakyReLU(self.lrelu_slope_, inplace=True),
+            nn.Dropout(dropout),
             
             # state size. (ndf) x 32 x 32
             nn.Conv2d(self.init_num_filters_, self.init_num_filters_ * 2, 4, 2, 1, bias=False),
             nn.BatchNorm2d(self.init_num_filters_ * 2),
             nn.LeakyReLU(self.lrelu_slope_, inplace=True),
+            nn.Dropout(dropout),
             
             # state size. (ndf*2) x 16 x 16
             nn.Conv2d(self.init_num_filters_  * 2, self.init_num_filters_ * 4, 4, 2, 1, bias=False),
             nn.BatchNorm2d(self.init_num_filters_  * 4),
             nn.LeakyReLU(self.lrelu_slope_, inplace=True),
+            nn.Dropout(dropout),
             
             # state size. (ndf*4) x 8 x 8
             nn.Conv2d(self.init_num_filters_  * 4, self.init_num_filters_ * 8, 4, 2, 1, bias=False),
             nn.BatchNorm2d(self.init_num_filters_  * 8),
             nn.LeakyReLU(self.lrelu_slope_, inplace=True),
+            nn.Dropout(dropout),
             
             # state size. (ndf*8) x 4 x 4
             nn.Conv2d(self.init_num_filters_ * 8, self.init_num_filters_ * 8, 4, 2, 0, bias=False),
@@ -70,7 +74,7 @@ class CelebaDecoder(nn.Module):
             inter_fc_dim (int): intermediate fully connected dimensionality prior to embedding layer
             embedding_dim (int): embedding dimensionality
     """
-    def __init__(self, init_num_filters=16, lrelu_slope=0.2, inter_fc_dim=128, embedding_dim=2, nc=3):
+    def __init__(self, init_num_filters=16, lrelu_slope=0.2, inter_fc_dim=128, embedding_dim=2, nc=3, dropout=0.05):
         super(CelebaDecoder, self).__init__()
 
         self.init_num_filters_ = init_num_filters
@@ -82,18 +86,22 @@ class CelebaDecoder(nn.Module):
             nn.ConvTranspose2d(self.init_num_filters_ * 8, self.init_num_filters_ * 8, 4, 1, 0, bias=False),
             nn.BatchNorm2d(self.init_num_filters_ * 8),
             nn.ReLU(True),
+            nn.Dropout(dropout),
             
             nn.ConvTranspose2d(self.init_num_filters_ * 8, self.init_num_filters_ * 4, 4, 2, 1, bias=False),
             nn.BatchNorm2d(self.init_num_filters_ * 4),
             nn.ReLU(True),
+            nn.Dropout(dropout),
 
             nn.ConvTranspose2d(self.init_num_filters_ * 4, self.init_num_filters_ * 2, 4, 2, 1, bias=False),
             nn.BatchNorm2d(self.init_num_filters_ * 2),
             nn.ReLU(True),
+            nn.Dropout(dropout),
             
             nn.ConvTranspose2d(self.init_num_filters_ * 2, self.init_num_filters_ * 1, 4, 2, 1, bias=False),
             nn.BatchNorm2d(self.init_num_filters_ * 1),
             nn.ReLU(True),
+            nn.Dropout(dropout),
             
             nn.ConvTranspose2d(self.init_num_filters_ * 1, nc, 4, 2, 1, bias=False),
             nn.Tanh()
