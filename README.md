@@ -27,7 +27,7 @@ All the experiments are issued in the form of pretty self-explanatory jupyter no
 
 ## Results
 ### Toy Experiments
-Transforming single Gaussian to the mixture of 100 Gaussuans without mode dropping/collapse. Assessing the quality of the transport map fit in large dimensions.
+Transforming single Gaussian to the mixture of 100 Gaussuans without mode dropping/collapse (and some other toy cases).
 <p align="center"><img src="pics/toy_100g.png" width="650"/></p>
 
 ### Optimal Transport Maps between High Dimensional Gaussians
