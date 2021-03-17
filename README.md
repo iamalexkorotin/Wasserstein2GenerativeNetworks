@@ -28,9 +28,10 @@ All the experiments are issued in the form of pretty self-explanatory jupyter no
 - `src/icnn.py` -- modules for Input Convex Neural Network architectures (**DenseICNN**, **ConvICNN**);
 <p align="center"><img src="pics/icnn.png" width="450" /></p>
 
-### Other
+### Poster
 - `poster/W2GN_poster.png` -- poster (landscape format)
 - `poster/W2GN_poster.svg` -- source file for the poster
+<p align="center"><img src="poster/W2GN_poster.png" width="500" /></p>
 
 ## Results
 ### Toy Experiments
