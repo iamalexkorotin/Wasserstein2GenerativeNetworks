@@ -1,5 +1,5 @@
 # Wasserstein-2 Generative Networks
-This is the official `Python` implementation of the paper **Wasserstein-2 Generative Networks** (preprint on [arXiv](https://arxiv.org/abs/1909.13082)) by [Alexander Korotin](https://scholar.google.ru/citations?user=1rIIvjAAAAAJ&hl=en), [Vahe Egizarian](https://scholar.google.ru/citations?user=Bktg6JEAAAAJ&hl=en), [Arip Asadulaev](https://scholar.google.com/citations?user=wcdrgdYAAAAJ&hl=ru), [Alexander Safin](https://scholar.google.com/citations?user=ga3P-mAAAAAJ&hl=en) and [Evgeny Burnaev](https://scholar.google.ru/citations?user=pCRdcOwAAAAJ&hl=ru).
+This is the official `Python` implementation of the [ICLR 2021](https://iclr.cc) paper **Wasserstein-2 Generative Networks** (paper on [openreview](https://openreview.net/forum?id=bEoxzW_EXsa)) by [Alexander Korotin](https://scholar.google.ru/citations?user=1rIIvjAAAAAJ&hl=en), [Vahe Egizarian](https://scholar.google.ru/citations?user=Bktg6JEAAAAJ&hl=en), [Arip Asadulaev](https://scholar.google.com/citations?user=wcdrgdYAAAAJ&hl=ru), [Alexander Safin](https://scholar.google.com/citations?user=ga3P-mAAAAAJ&hl=en) and [Evgeny Burnaev](https://scholar.google.ru/citations?user=pCRdcOwAAAAJ&hl=ru).
 
 The repository contains reproducible `PyTorch` source code for computing **optimal transport maps** (and distances) in high dimensions via the **end-to-end non-minimax** method (proposed in the paper) by using **input convex neural networks**. Examples are provided for various real-world problems: color transfer, latent space mass transport, domain adaptation, style transfer.
 
@@ -10,6 +10,9 @@ The implementation is GPU-based. Single GPU (~GTX 1080 ti) is enough to run each
 - [pytorch](http://pytorch.org/)
 - [torchvision](https://github.com/pytorch/vision)
 - CUDA + CuDNN
+
+## Related repositories
+- [Repository](https://github.com/iamalexkorotin/Wasserstein2Barycenters) for [Continuous Wasserstein-2 Brycenter Estimation without Minimax Optimization](https://arxiv.org/abs/2102.01752) paper.
 
 ## Repository structure
 All the experiments are issued in the form of pretty self-explanatory jupyter notebooks (`notebooks/`). For convenience, the majority of the evaluation output is preserved. Auxilary source code is moved to `.py` modules (`src/`). 
@@ -24,6 +27,10 @@ All the experiments are issued in the form of pretty self-explanatory jupyter no
 ### Input convex neural networks
 - `src/icnn.py` -- modules for Input Convex Neural Network architectures (**DenseICNN**, **ConvICNN**);
 <p align="center"><img src="pics/icnn.png" width="450" /></p>
+
+### Other
+- `poster/W2GN_poster.png` -- poster (landscape format)
+- `poster/W2GN_poster.svg` -- source file for the poster
 
 ## Results
 ### Toy Experiments
