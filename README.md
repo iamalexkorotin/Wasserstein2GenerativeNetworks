@@ -12,7 +12,7 @@ The implementation is GPU-based. Single GPU (~GTX 1080 ti) is enough to run each
 - CUDA + CuDNN
 
 ## Related repositories
-- [Repository](https://github.com/iamalexkorotin/Wasserstein2Barycenters) for [Continuous Wasserstein-2 Brycenter Estimation without Minimax Optimization](https://arxiv.org/abs/2102.01752) paper.
+- [Repository](https://github.com/iamalexkorotin/Wasserstein2Barycenters) for [Continuous Wasserstein-2 Barycenter Estimation without Minimax Optimization](https://arxiv.org/abs/2102.01752) paper.
 
 ## Repository structure
 All the experiments are issued in the form of pretty self-explanatory jupyter notebooks (`notebooks/`). For convenience, the majority of the evaluation output is preserved. Auxilary source code is moved to `.py` modules (`src/`). 
