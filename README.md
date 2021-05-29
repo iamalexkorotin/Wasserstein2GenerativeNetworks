@@ -5,6 +5,18 @@ The repository contains reproducible `PyTorch` source code for computing **optim
 
 <p align="center"><img src="pics/mappings.png" width="450" /></p>
 
+## Citation
+```
+@inproceedings{
+  korotin2021wasserstein,
+  title={Wasserstein-2 Generative Networks},
+  author={Alexander Korotin and Vage Egiazarian and Arip Asadulaev and Alexander Safin and Evgeny Burnaev},
+  booktitle={International Conference on Learning Representations},
+  year={2021},
+  url={https://openreview.net/forum?id=bEoxzW_EXsa}
+}
+```
+
 ## Prerequisites
 The implementation is GPU-based. Single GPU (~GTX 1080 ti) is enough to run each particular experiment. Main prerequisites are:
 - [pytorch](http://pytorch.org/)
