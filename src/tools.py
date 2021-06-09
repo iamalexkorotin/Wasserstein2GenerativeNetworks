@@ -147,8 +147,9 @@ def energy_based_distance(X, Y, n_projections=10000, biased=False):
     
     This implementation computes an unbiased sliced continuous
     ranking probability score (via random projections).
-    It equals energy based distance up to a multiplicative constant
-    depending on the dimension.
+    It equals energy based distance up to a multiplicative
+    constant depending on the dimension,
+    see Theorem 4.1 of https://arxiv.org/pdf/1912.07048.pdf for details 
     '''
     assert X.size(1) == Y.size(1)
     

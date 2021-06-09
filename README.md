@@ -18,10 +18,11 @@ The repository contains reproducible `PyTorch` source code for computing **optim
 ```
 
 ## Prerequisites
-The implementation is GPU-based. Single GPU (~GTX 1080 ti) is enough to run each particular experiment. Main prerequisites are:
-- [pytorch](http://pytorch.org/)
-- [torchvision](https://github.com/pytorch/vision)
-- CUDA + CuDNN
+The implementation is GPU-based. Single GPU (~GTX 1080 ti) is enough to run each particular experiment. Tested with
+
+`torch==1.3.0 torchvision==0.4.1`
+
+The code might not run as intended in newer `torch` versions. Newer `torchvision` might conflict with FID score evaluation.
 
 ## Related repositories
 - [Repository](https://github.com/iamalexkorotin/Wasserstein2Barycenters) for [Continuous Wasserstein-2 Barycenter Estimation without Minimax Optimization](https://arxiv.org/abs/2102.01752) paper.
@@ -32,7 +33,7 @@ All the experiments are issued in the form of pretty self-explanatory jupyter no
 ### Experiments
 - `notebooks/W2GN_toy_experiments.ipynb` -- **toy experiments** (2D: Swiss Roll, 100 Gaussuans, ...);
 - `notebooks/W2GN_gaussians_high_dimensions.ipynb` -- optimal maps between **Gaussians in high dimensions**;
-- `notebooks/W2GN_latent_space_optimal_transport.ipynb` -- **latent space optimal transport** for a *CelebA 64x64* Aligned Images (use [this script](https://github.com/joeylitalien/celeba-gan-pytorch/blob/master/CelebA_helper.py) to rescale dataset to 64x64);
+- `notebooks/W2GN_latent_space_optimal_transport.ipynb` -- **latent space optimal transport** for generating [CelebA 64x64 aligned images](https://www.kaggle.com/jessicali9530/celeba-dataset);
 - `notebooks/W2GN_domain_adaptation.ipynb` -- **domain adaptation** for *MNIST-USPS* digits datasets;
 - `notebooks/W2GN_color_transfer.ipynb` -- cycle monotone pixel-wise image-to-image **color transfer** (example images are provided in `data/color_transfer/`);
 - `notebooks/W2GN_style_transfer.ipynb` -- cycle monotone image dataset-to-dataset **style transfer** (used datasets are publicitly available at the official [CycleGan repo](https://github.com/junyanz/CycleGAN));
@@ -170,3 +171,8 @@ MNIST-USPS domain adaptation. PCA Visualization of feature spaces (see the paper
 Optimal transport map in the space of images. Photo2Cezanne and Winter2Summer datasets are used.
 <p align="center"><img src="pics/image_ot.png" width="400" /></p>
 <p align="center"><img src="pics/photo_to_cezanne.png" height="214" hspace="25" /><img src="pics/winter_to_summer.png" height="214" /></p>
+
+## Credits
+- [cycleGAN repo](https://github.com/junyanz/CycleGAN) with Winter2Summer and Photo2Monet datasets;
+- [CelebA page](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) with faces dataset and [this page](https://www.kaggle.com/jessicali9530/celeba-dataset) with its aligned 64x64 version;
+- [pytorch-fid repo](https://github.com/mseitzer/pytorch-fid) to compute [FID](https://arxiv.org/abs/1706.08500) score;
