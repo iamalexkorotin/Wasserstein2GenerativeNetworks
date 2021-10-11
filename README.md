@@ -26,6 +26,8 @@ The code might not run as intended in newer `torch` versions. Newer `torchvision
 
 ## Related repositories
 - [Repository](https://github.com/iamalexkorotin/Wasserstein2Barycenters) for [Continuous Wasserstein-2 Barycenter Estimation without Minimax Optimization](https://arxiv.org/abs/2102.01752) paper.
+- [Repository](https://github.com/iamalexkorotin/Wasserstein2Benchmark) for [Do Neural Optimal Transport Solvers Work? A Continuous Wasserstein-2 Benchmark](https://arxiv.org/abs/2106.01954) paper.
+- [Repository](https://github.com/PetrMokrov/Large-Scale-Wasserstein-Gradient-Flows) for [Large-Scale Wasserstein Gradient Flows](https://arxiv.org/abs/2106.00736) paper.
 
 ## Repository structure
 All the experiments are issued in the form of pretty self-explanatory jupyter notebooks (`notebooks/`). For convenience, the majority of the evaluation output is preserved. Auxilary source code is moved to `.py` modules (`src/`). 
