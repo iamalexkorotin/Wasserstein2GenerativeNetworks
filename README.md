@@ -25,6 +25,7 @@ The implementation is GPU-based. Single GPU (~GTX 1080 ti) is enough to run each
 The code might not run as intended in newer `torch` versions. Newer `torchvision` might conflict with FID score evaluation.
 
 ## Related repositories
+- [Repository](https://github.com/justkolesov/Wasserstein1Benchmark) for [Kantorovich Strikes Back! Wasserstein GANs are not Optimal Transport?](https://arxiv.org/abs/2206.07767) paper.
 - [Repository](https://github.com/iamalexkorotin/Wasserstein2Barycenters) for [Continuous Wasserstein-2 Barycenter Estimation without Minimax Optimization](https://arxiv.org/abs/2102.01752) paper.
 - [Repository](https://github.com/iamalexkorotin/Wasserstein2Benchmark) for [Do Neural Optimal Transport Solvers Work? A Continuous Wasserstein-2 Benchmark](https://arxiv.org/abs/2106.01954) paper.
 - [Repository](https://github.com/PetrMokrov/Large-Scale-Wasserstein-Gradient-Flows) for [Large-Scale Wasserstein Gradient Flows](https://arxiv.org/abs/2106.00736) paper.
