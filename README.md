@@ -5,6 +5,11 @@ The repository contains reproducible `PyTorch` source code for computing **optim
 
 <p align="center"><img src="pics/mappings.png" width="450" /></p>
 
+
+## Presentations
+- [Video presentation](https://iclr.cc/virtual/2021/poster/2664) by Alexander Korotin at [ICLR 2021](https://iclr.cc/Conferences/2021) (May 2021, EN);
+- [Talk](https://www.youtube.com/watch?v=X4jtmAIEDJg) by Alexander Korotin at [BayesGroup research seminar](https://bayesgroup.ru/teaching/research-seminar-on-bayesian-methods-in-machine-learning/) workshop (2020, RU);
+
 ## Citation
 ```
 @inproceedings{
